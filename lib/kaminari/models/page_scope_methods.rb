@@ -16,7 +16,9 @@ module Kaminari
 
     # Total number of pages
     def total_pages
-      (total_count.to_f / limit_value).ceil
+      current_page+1
+      # hack to remove this count dependency
+      #(total_count.to_f / limit_value).ceil
     end
     #FIXME for compatibility. remove num_pages at some time in the future
     alias num_pages total_pages
@@ -33,7 +35,9 @@ module Kaminari
 
     # Last page of the collection?
     def last_page?
-      current_page >= total_pages
+      return true
+      # hack to remove this call so we don't do any counting
+      #current_page >= total_pages
     end
   end
 end

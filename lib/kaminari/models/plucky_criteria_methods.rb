@@ -9,7 +9,7 @@ module Kaminari
     end
 
     def total_count #:nodoc:
-      count
+      count(true)
     end
   end
 end

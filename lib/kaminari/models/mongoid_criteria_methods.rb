@@ -9,15 +9,16 @@ module Kaminari
     end
 
     def total_count #:nodoc:
-      embedded? ? unpage.count : count
+      embedded? ? unpage.count(true) : count(true)
     end
 
     private
     def unpage
-      clone.tap do |crit|
-        crit.options.delete :limit
-        crit.options.delete :skip
-      end
+      return clone
+      # clone.tap do |crit|
+      #   crit.options.delete :limit
+      #   crit.options.delete :skip
+      # end
     end
   end
 end
