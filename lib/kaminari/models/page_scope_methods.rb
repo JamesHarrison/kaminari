@@ -16,7 +16,7 @@ module Kaminari
 
     # Total number of pages
     def total_pages
-      current_page+1
+      current_page+4
       # hack to remove this count dependency
       #(total_count.to_f / limit_value).ceil
     end
